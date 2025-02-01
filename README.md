@@ -9,10 +9,14 @@ its my final year project and i create a different chatrooms public,private,temp
 ![pic6](https://github.com/user-attachments/assets/ec897bc0-5af2-4069-8e7a-e8de43b0cae4)
 
 
-cd Frontend
-npm install --force
-cd Backend
-npm install... 
+cd Frontend   npm install --force
+
+
+
+cd Backend    npm install...       
+
+
+
 Boom Guys
 
 
