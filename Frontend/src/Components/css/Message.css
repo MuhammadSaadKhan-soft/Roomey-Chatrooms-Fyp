@@ -1,0 +1,187 @@
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.messageContainer.right {
+    align-items: flex-end;
+}
+
+.messageContainer.left {
+    align-items: flex-start;
+}
+
+.messageContainer.right:hover,
+.messageContainer.left:hover {
+    transform: scale(1.02);
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    max-width: 60%;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f1f1f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+    position: relative;
+}
+
+.messageContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.messageText {
+    margin: 0;
+}
+
+.timestamp {
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-top: 4px;
+    text-align: right;
+}
+
+.messageContainer.right .message {
+    background-color: #007bff;
+    color: white;
+    
+}
+
+.messageContainer.left .message {
+    background-color: #e1e1e1;
+    color: black;
+}
+
+.profilePicture {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 2px solid #ddd;
+}
+
+.audioContainer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Custom audio player container */
+.customAudioPlayer {
+    display: flex;
+    align-items: center;
+    /* Discord-like dark background */
+    border-radius: 8px;
+    padding: 10px 12px; /* Adjusted padding for a balanced look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+    width: 100%;
+    max-width: 400px; /* Limits the player width for better chat fit */
+    margin: 0 auto;
+}
+
+/* Play/Pause button styling */
+.playPauseBtn {
+    background-color: #7289da; /* Discord blue */
+    border: none;
+    color: white;
+    padding: 8px 12px; /* Slightly larger for better touch targets */
+    border-radius: 50%; /* Circular button */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.playPauseBtn:hover {
+    background-color: #5a6ea1; /* Darker blue on hover */
+    transform: scale(1.1); /* Slightly larger on hover */
+}
+
+/* Progress bar container */
+.progressBar {
+    flex-grow: 1;
+    height: 6px;
+    background-color: #4e535c; /* Dark grey for background */
+    border-radius: 3px;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress fill */
+.progressFill {
+    height: 100%;
+    width: 0;
+    background-color: #7289da; /* Discord blue */
+    border-radius: 3px;
+    transition: width 0.1s linear;
+}
+
+/* Time and duration display */
+.timeDisplay {
+    font-size: 0.8rem;
+    color: #ccc;
+    font-family: 'Courier New', Courier, monospace; /* A retro typewriter feel */
+    min-width: 45px;
+}
+
+/* Hide default audio controls */
+.audioElement {
+    display: none;
+}
+
+/* Custom volume slider container */
+.volumeControl {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.volumeIcon {
+    font-size: 16px;
+    color: #7289da;
+    margin-right: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.volumeIcon:hover {
+    transform: scale(1.2);
+}
+
+/* Volume slider styling */
+.volumeSlider {
+    appearance: none;
+    width: 80px;
+    height: 4px;
+    background-color: #4e535c;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.volumeSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: #7289da;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.volumeSlider:hover {
+    background-color: #5a6ea1;
+}
+
+.volumeSlider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}

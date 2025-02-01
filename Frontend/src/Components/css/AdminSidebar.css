@@ -1,0 +1,33 @@
+/* Sidebar.css */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    position: fixed; /* Make it fixed so it stays on the left */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 10px 0;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  

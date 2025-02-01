@@ -1,0 +1,84 @@
+body{
+  margin: 0;
+}
+@media (max-aspect-ratio:7/10){
+  .JoinContainer{
+    width:100%;
+    border: 2px solid white;
+  }
+}
+/* App.css */
+
+.darkMode {
+  background-color: #0D0E12; /* Dark background color */
+  color: white; /* White text color */
+}
+
+.lightMode {
+  background-color: white; /* Light background color */
+  color: black; /* Black text color */
+}
+
+.darkSidebar {
+  background-color: #333; /* Dark gray sidebar background color */
+}
+
+.lightSidebar {
+  background-color: #f0f0f0; /* Light gray sidebar background color */
+}
+
+.title {
+  width: fit-content;
+  margin-inline: auto;
+  font-family: serif;
+  font-size: 80px;
+  font-weight: 700;
+  text-align: center;
+  background: 
+    linear-gradient(
+      to bottom,
+      gray,
+      white
+    ),
+    linear-gradient(
+    45deg, black 0%, gray 50%, black 100%
+  );
+  background-blend-mode: screen;
+ 
+  -webkit-text-fill-color: transparent;
+
+  animation: anime 2s infinite linear;
+  background-position-x: 0, 200%;
+  background-position-y: 0, 0;
+  background-size: 100% 100%, 100px 100%;
+  background-repeat: no-repeat;
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0 0, -200% 0;
+  }
+  70% {
+    background-position: 0 0, 200% 0;
+  }
+  
+}
+
+
+
+
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.chat-loading-image {
+  width: 150px; /* Adjust size as needed */
+  margin-bottom: 20px;
+}

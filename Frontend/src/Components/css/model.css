@@ -1,0 +1,93 @@
+/* Modal styling */
+.modal-dialog {
+    max-width: 500px;
+    margin: 80px auto;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1d2b64, #f8cdda); /* Gradient background */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Smooth shadow */
+    color: #fff; /* Text color for better readability */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Header styling */
+.modal-header {
+    background-color: #283048; /* Dark header background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+/* Close button styling */
+.modal-header .close {
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.modal-header .close:hover {
+    opacity: 1;
+}
+
+/* Input styling */
+.modal-body input {
+    background-color: #333;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.modal-body input:focus {
+    background-color: #444;
+    transform: scale(1.02);
+    outline: none;
+}
+
+/* Button styling */
+.modal-footer button {
+    background-color: #f76b1c; /* Primary button color */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.modal-footer button:hover {
+    background-color: #ff865e;
+    transform: scale(1.05);
+}
+
+.modal-footer .btn-secondary {
+    background-color: #777;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #888;
+}
+
+/* Modal backdrop styling */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Add smooth transitions */
+.modal-content {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}

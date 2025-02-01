@@ -1,0 +1,159 @@
+/* ProfileManagementPage Styles */
+.ProfileManagementPage {
+    padding: 2rem;
+    font-family: 'Poppins', sans-serif; /* Use a modern font */
+    max-width: 800px;
+    margin: 0 auto; /* Center the content */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    border-radius: 12px; /* Rounded corners */
+    background-color:#242736; /* Light background */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    border: 3px solid blue;
+}
+
+.ProfileManagementPage.bg-dark {
+    background-color: #242736;
+    color: #e0e0e0;
+}
+
+.ProfileManagementPage.bg-light {
+    background-color:#242736;
+    color: #333333;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+   
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.profile-img {
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+    margin: auto;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance the shadow on hover */
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    color: #007bff;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+/* Section Title */
+h2.section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    position: relative;
+    animation: slideIn 0.8s ease-in-out; /* Use slide-in animation */
+    color: #007bff;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Form Styles */
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(38, 143, 255, 0.3); /* Soft glow on focus */
+    outline: none;
+}
+
+textarea.form-control {
+    height: 120px; /* Slightly larger textarea */
+    resize: vertical;
+}
+
+/* Error Text */
+.text-danger {
+    font-size: 0.875rem;
+    color: #dc3545;
+    margin-top: 0.25rem;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Add button shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.1); /* Larger scale on hover */
+    box-shadow: 0 6px 12px rgba(0, 86, 179, 0.4); /* Enhance shadow on hover */
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(38, 143, 255, 0.5); /* Glow on focus */
+}
+
+@media (max-width: 576px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-img {
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+
+    h1, h3 {
+        margin-top: 0.5rem;
+    }
+}

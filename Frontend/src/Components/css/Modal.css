@@ -1,0 +1,45 @@
+/* UserModal.css */
+.user-modal {
+  content: '';
+  width: 400px; /* Adjust width as needed for medium size */
+  max-width: 90%; /* Responsive */
+  border-radius: 10px; /* Rounded corners */
+  background: #fff; /* Background color */
+  padding: 20px; /* Padding for content */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  position: relative; /* Positioning for modal content */
+  z-index: 1000; /* Ensure it appears on top */
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-modal-content {
+  text-align: center; /* Center text within modal */
+}
+
+.user-image {
+  width: 100px; /* Image size */
+  height: 100px; /* Image size */
+  border-radius: 50%; /* Circular image */
+  margin-bottom: 15px; /* Space below the image */
+  border: 2px solid #4CAF50; /* Border for profile picture */
+}
+
+.close-button {
+  background-color: #4CAF50; /* Green button */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 15px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.close-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}

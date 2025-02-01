@@ -1,0 +1,63 @@
+/* UserModal.css */
+.user-modal {
+    width: 400px; /* Width of the modal */
+    max-width: 90%; /* Responsive */
+    border-radius: 10px; /* Rounded corners */
+    background: #ffffff; /* Background color */
+    padding: 20px; /* Padding for content */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    position: relative; /* Positioning for modal content */
+    z-index: 1000; /* Ensure it appears on top */
+  }
+  
+/* UserModal.css */
+.modal-overlay {
+    position: fixed; /* Ensure it covers the viewport */
+    top: 0;          /* Align to the top */
+    left: 0;         /* Align to the left */
+    width: 100%;     /* Full width */
+    height: 100%;    /* Full height */
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;   /* Ensure it appears above other content */
+}
+
+  
+  .user-modal-content {
+    text-align: center; /* Center text within modal */
+    margin: 10px 0; /* Margin around content */
+  }
+  
+  .user-image {
+    width: 100px; /* Image size */
+    height: 100px; /* Image size */
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 15px; /* Space below the image */
+    border: 2px solid #4CAF50; /* Border for profile picture */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for image */
+  }
+  
+  .user-modal-content p {
+    margin: 8px 0; /* Margin between paragraphs */
+    font-size: 16px; /* Font size for text */
+    color: #333; /* Text color */
+  }
+  
+  .close-button {
+    background-color: #4CAF50; /* Green button */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+    margin-top: 15px; /* Space above button */
+  }
+  
+  .close-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  

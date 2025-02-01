@@ -1,0 +1,26 @@
+.react-recorder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.record-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.recording {
+    background-color: red;
+    color: white;
+}
+
+.audio-preview {
+    margin-top: 20px;
+}
+
+.send-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

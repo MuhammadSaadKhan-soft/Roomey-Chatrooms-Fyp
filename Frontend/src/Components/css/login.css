@@ -1,0 +1,117 @@
+/* Container for the entire login section */
+section {
+  padding: 3rem 1rem;
+  background-color: 242736;
+}
+
+
+
+/* Styling for the image and text container */
+.bsb-tpl-bg-platinum,
+.bsb-tpl-bg-lotion {
+  border-radius: 15px; /* Rounded corners */
+}
+
+/* Styling for the image */
+.bsb-tpl-bg-platinum img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Form container styling */
+.p-3,
+.p-md-4,
+.p-xl-5 {
+  padding: 1rem;
+}
+
+/* Styling for form elements */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: black;
+  box-shadow: black;
+  outline: none;
+}
+
+/* Input group for password visibility toggle */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: background-color 0.3s ease;
+}
+
+.input-group .btn:hover {
+  background-color:black;
+  color:white,
+}
+
+/* Button styling */
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: black;
+  transform: scale(1.05);
+}
+
+/* Loading spinner animation */
+.fa-spinner {
+  color: #007bff;
+  font-size: 30px;
+}
+
+/* Forgot password link styling */
+.forgot-password {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-password-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password-link:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* GitHub login button styling */
+.btn-github {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.btn-github:hover {
+  background-color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .col-md-6 {
+      width: 100%;
+  }
+}
+
+
+

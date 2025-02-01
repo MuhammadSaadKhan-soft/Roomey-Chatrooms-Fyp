@@ -1,0 +1,22 @@
+.loading-container {
+    position: relative;
+    display: flex;              /* Use flexbox for centering */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    height: 100vh;              /* Full viewport height for vertical centering */
+    width: 100%;                /* Full width */
+}
+
+
+.loading {
+    position: absolute; /* Position the loading spinner on top of the image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the spinner */
+    z-index: 1; /* Ensure the spinner is above the image */
+}
+
+.image {
+    width: 150px;
+    display: block;
+}
