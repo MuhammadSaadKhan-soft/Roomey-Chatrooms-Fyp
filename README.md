@@ -1,6 +1,5 @@
 # Roomey-Chatrooms-Fyp
-its my final year project and i create a different chatrooms public,private,temporary and shedule etc through which we chat with each other see how many users in room nitification about joining and leaving room use live stream audio and video functionality.
-
+its my final year project and i create a different chatrooms public,private,temporary and shedule etc through which we chat with each other see how many users in room nitification about joining and leaving room use live stream audio and video functionality.Real time messaging through sockets connection a strong platform for iteraction and chatting...
 ![pic1](https://github.com/user-attachments/assets/643e953e-009c-4d30-a98f-4beb063e2d67)
 ![pic2](https://github.com/user-attachments/assets/a8c7b432-e8af-499d-810e-4267884c55d0)
 ![pic3](https://github.com/user-attachments/assets/6923510b-7da0-4ce9-8335-c0ba24071532)
