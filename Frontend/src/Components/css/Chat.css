@@ -1,0 +1,484 @@
+/* Overall page styles */
+.ChatPage {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: #2f3136; /* Dark background for the entire page */
+}
+
+/* Sidebar styles */
+.Sidebar {
+    padding: 20px;
+    background-color: #202225; /* Solid dark color */
+    color: #fff; /* White text color */
+    width:250px; /* Fixed width for the sidebar */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Link styles */
+.Sidebar a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #b9bbbe; /* Light gray text color */
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.Sidebar a:hover {
+    background-color: #40444b; /* Slightly darker gray background on hover */
+}
+
+/* Sidebar link styles */
+.Sidebar .sidebar-link {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar icon styles */
+.Sidebar .sidebar-link i {
+    margin-right: 10px;
+    font-size: 18px; /* Adjust icon size as needed */
+}
+
+/* Sidebar title styles */
+.Sidebar .sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e0e0e0; /* Light text color */
+}
+
+
+/* Chat container styles */
+.ChatContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #36393f;
+   
+}
+
+/* Header styles */
+.Header {
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #1f1f1f, #2a2a2a); /* Dark gradient */
+    border-bottom: 1px solid #40444b; /* Border for separation */
+}
+
+/* Chat box styles */
+.ChatBox {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scroll if content exceeds container height */
+    padding: 20px;
+    background:#242736; /* Dark background for chat messages */
+}
+
+/* Input box styles */
+.InputBox {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #242736; /* Darker gray background */
+    border-top: 1px solid #40444b;
+    margin-top: auto; /* Push the input box to the bottom */
+}
+
+
+/* Input field styles */
+.InputBox input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #4f545c; /* Slightly lighter gray border */
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #3a3b3f; /* Slightly darker gray background */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Button styles */
+.InputBox button {
+    padding: 10px 20px;
+    background-color: #242736; /* Discord-like blue button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Emoji Button styling */
+.EmojiButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Apply bounce animation on hover */
+.EmojiButton:hover {
+    animation: bounce 0.5s;
+}
+
+/* Apply pulse animation when emoji picker is visible */
+.EmojiButton.active {
+    animation: pulse 1s infinite;
+}
+
+/* Emoji Picker styling */
+.EmojiPicker {
+    position: absolute;
+    bottom: 60px; /* Adjust based on the height of the input box */
+     /* Align with the right edge of the chat container */
+    z-index: 1000; /* Ensure it appears above other elements */
+    background-color: #2f3136; /* Dark background for better visibility */
+    border: 1px solid #4f545c; /* Border for clarity */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    max-height: 300px; /* Limit height to prevent overflow */
+    overflow-y: auto; /* Scroll if content exceeds height */
+    width: 350px; /* Adjust width as needed */
+}
+
+/* Hide emoji picker when not needed */
+.EmojiPicker.hidden {
+    display: none;
+}
+
+/* Notification Icon styles */
+.NotificationIcon {
+    position: relative;
+    display: inline-block;
+}
+
+.NotificationIcon .DropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #2f3136; /* Dark background */
+    border: 1px solid #4f545c;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: 200px;
+    display: none; /* Hidden by default */
+}
+
+.NotificationIcon.show-dropdown .DropdownMenu {
+    display: block;
+}
+
+.DropdownMenu p {
+    padding: 12px 16px;
+    margin: 0;
+    cursor: pointer;
+    color: #b9bbbe; /* Light gray text color */
+}
+
+.DropdownMenu p:hover {
+    background: #40444b; /* Darker gray background on hover */
+    color: #fff; /* White text color */
+}
+
+/* Notification Badge styles */
+.NotificationBadge {
+    position: absolute;
+    top: -10px; /* Adjust this value based on your icon's size and design */
+    right: -10px; /* Adjust this value based on your icon's size and design */
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 20px; /* Ensure the badge is large enough */
+    height: 20px; /* Ensure the badge is large enough */
+    line-height: 20px; /* Center text vertically */
+}
+
+/* User Image styling */
+.UserImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #4f545c; /* Border color */
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+/* Admin Name styling */
+.AdminName {
+    font-size: 18px;
+    font-weight: bold;
+    color: #43b581; /* Discord-like green color */
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-in-out; /* Fade in effect */
+}
+
+/* User Count Container styling */
+.userCountContainer {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #3a3b3f; /* Darker gray background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    font-weight: bold;
+    color: #e0e0e0; /* Light text color */
+    animation: bounceIn 1s ease-out; /* Bounce in effect */
+}
+
+
+
+/* Admin name and user count container */
+.AdminName,
+.userCountContainer {
+    margin-bottom: 20px;
+    color: #e0e0e0; /* Light text color */
+}
+/* User List container */
+.UserList {
+    flex-grow: 1; /* Allow the UserList to take up remaining space */
+    overflow-y: auto; /* Enable vertical scroll */
+    max-height: 70vh; /* Increase height to be more flexible and responsive */
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #2f3136; /* Darker gray background for list */
+    width: 100%; /* Full width inside sidebar */
+}
+
+
+.UserList li {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center;
+    margin: 10px 0; /* Increased margin for better spacing */
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #0d151c; /* Example color */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* User Image styling */
+.UserImage {
+    width: 50px; /* Increased size for better visibility */
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #4f545c; /* Border color */
+    margin-right: 15px;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevent shrinking of the image */
+}
+
+/* User Name styling */
+.UserList .UserName {
+    flex-grow: 1; /* Allow the name to take up remaining space */
+    font-size: 16px;
+    font-weight: bold;
+    color: #e0e0e0; /* Light text color */
+    margin-right: 15px; /* Space between name and button */
+    min-width: 100px; /* Ensure minimum width */
+}
+
+/* Remove User button */
+.UserList button {
+    background-color:#242736; /* Discord-like blue button color */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 10px 0px;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking of the button */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .UserList li {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+    
+    .UserList .UserName {
+        margin-right: 0;
+        margin-bottom: 10px; 
+    }
+    
+    .UserList button {
+        width: 100%; 
+    }
+}
+
+  @keyframes glowingBorder {
+    0% {
+        border-color: blue;
+        box-shadow: 0 0 5px blue;
+    }
+    50% {
+        border-color: cyan;
+        box-shadow: 0 0 15px cyan;
+    }
+    100% {
+        border-color: blue;
+        box-shadow: 0 0 5px blue;
+    }
+}
+
+.Sidebar {
+    border: 2px solid blue; /* Adjust border thickness as needed */
+    border-radius: 8px; /* Optional */
+    animation: glowingBorder 2s infinite alternate;
+}
+
+.ChatBox {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px;
+    background: #242736;
+    height: 100%; /* Ensure it takes full available height */
+    box-sizing: border-box;
+    position: relative;
+    scroll-behavior: smooth; /* This enables smooth scrolling */
+}
+
+
+/* Custom Scrollbar */
+.ChatBox::-webkit-scrollbar {
+    width: 12px; /* Adjust width of scrollbar */
+    height: 8px; /* Optional: If you want to apply a custom style to horizontal scrollbar */
+}
+
+/* Scrollbar Track */
+.ChatBox::-webkit-scrollbar-track {
+    background: #1a1d23; /* Darker background for the track */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow inside the track */
+}
+
+/* Scrollbar Thumb */
+.ChatBox::-webkit-scrollbar-thumb {
+    background-color: #5a626a; /* Slightly lighter color for thumb */
+    border-radius: 10px; /* Rounded corners */
+    border: 3px solid #2f3136; /* Border around the thumb */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Soft shadow around thumb */
+}
+
+/* Scrollbar Thumb Hover Effect */
+.ChatBox::-webkit-scrollbar-thumb:hover {
+    background-color: #9a9e9e; /* Lighter thumb color on hover */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); /* More prominent shadow on hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Optional: Custom Horizontal Scrollbar */
+.ChatBox::-webkit-scrollbar-horizontal {
+    height: 8px; /* Set height of horizontal scrollbar */
+}
+
+/* Scrollbar Handle (Optional: Add gradient effect) */
+.ChatBox::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #4f545c, #6c747d); /* Gradient effect for thumb */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Inner shadow effect */
+}
+
+/* Optional: Scrollbar Hover Animation */
+.ChatBox::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #6c747d, #9a9e9e); /* Change gradient on hover */
+}
+
+
+/* Hover effect for messages */
+.Message {
+    position: relative;
+    padding: 10px;
+    background-color: #3a3b3f; /* Slightly lighter background */
+    border-radius: 5px;
+  
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.Message:hover {
+    background-color: #40444b; /* Darker background on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Slight glow effect */
+    transform: scale(1.02); /* Slightly enlarge the message */
+}
+
+/* Optional: Style for sender-specific messages */
+.Message.right {
+    background-color: #4f545c; /* Message from the user */
+    margin-left: auto; /* Align to the right */
+}
+
+.Message.left {
+    background-color: #3a3b3f; /* Message from others */
+    margin-right: auto; /* Align to the left */
+}
+.edit-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+}
+/* Style for the Edit button */
+.edit-button {
+    background-color: #4caf50;  /* Green color */
+    color: white;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: auto;
+} 
+
+/* Hover effect for the Edit button */
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+/* Style for the Delete button */
+.delete-button {
+    background-color: #f44336;  /* Red color */
+    color: white;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: auto;
+}
+
+/* Hover effect for the Delete button */
+.delete-button:hover {
+    background-color: #e53935;
+}
+
+/* Optionally, add a margin or spacing between the buttons */
+.message-container button {
+    margin-left: 10px;
+    
+}

@@ -1,0 +1,87 @@
+{
+  "name": "saadpro",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emoji-mart/data": "^1.1.2",
+    "@emoji-mart/react": "^1.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-oauth/google": "^0.12.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@zegocloud/zego-uikit-prebuilt": "^2.0.1",
+    "agora-rtc-sdk-ng": "^4.20.2",
+    "axios": "^1.6.8",
+    "blob-util": "^2.0.2",
+    "bootstrap": "^5.3.3",
+    "buffer": "^6.0.3",
+    "clipboard-polyfill": "^4.1.0",
+    "ejs": "^3.1.10",
+    "emoji-mart": "^5.6.0",
+    "emoji-picker-react": "^4.11.1",
+    "gh-pages": "^6.1.1",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "lodash.debounce": "^4.0.8",
+    "npm": "^10.9.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
+    "react-calendar": "^5.0.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^7.3.0",
+    "react-dom": "^18.2.0",
+    "react-google-button": "^0.8.0",
+    "react-loading": "^2.0.3",
+    "react-mic": "^12.4.6",
+    "react-modal": "^3.16.1",
+    "react-redux": "^9.1.2",
+    "react-router": "^6.21.3",
+    "react-router-dom": "^6.21.3",
+    "react-scripts": "5.0.1",
+    "react-scroll-to-bottom": "^4.2.0",
+    "react-social-github": "^2.1.2",
+    "react-social-login-buttons": "^4.1.0",
+    "react-voice-recorder": "^2.1.2",
+    "reactjs-social-login": "^2.6.3",
+    "redux": "^5.0.1",
+    "socket.io-client": "^4.7.5",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.5",
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.0.0"
+  }
+}
