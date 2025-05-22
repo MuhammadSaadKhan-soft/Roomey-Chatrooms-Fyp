@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 import { io } from 'socket.io-client';
 import "../css/Modal.css"
-const socket = io('http://localhost:5000'); // Initialize the socket connection outside the component
+const socket = io('http://localhost:8080'); // Initialize the socket connection outside the component
 
 const VideoRoom = ({ showModal, setShowModal }) => {
     const [value, setValue] = useState('');

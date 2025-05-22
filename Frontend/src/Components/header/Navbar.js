@@ -1,100 +1,95 @@
-// Navbar.js
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { faUser, faPlusSquare, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import "../css/navbar.css";
-const Navbar = ({ mode, toggleMode, toggleSidebar }) => {
-  const { auth, logout } = useContext(AuthContext);
+import { faBars, faSignInAlt, faUserPlus, faUser, faPlusSquare, faSignOutAlt, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
- 
+const Navbar = ({ mode, toggleSidebar }) => {
+  const { auth, logout } = useContext(AuthContext);
+  const [showLinks, setShowLinks] = useState(false);
+
+  const handleSidebarToggle = (e) => {
+    e.preventDefault(); // Prevent page reload when the sidebar icon is clicked
+    toggleSidebar();    // Toggle sidebar visibility
+  };
 
   return (
-    <nav 
-    style={{ height: '65px' }}
-    className={`navbar navbar-expand navbar-${mode} custom-navbar glowing-border`}
-  >
-      
+    <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode === 'light' ? 'light' : 'dark'} shadow-sm`}>
       <div className="container-fluid">
-      <Link className="navbar-brand" onClick={toggleSidebar}>
-      
-      <FontAwesomeIcon style={{color:'white'}}icon={faBars} />
-     
-    </Link>
-        <button
-        style={{border:"1px solid blue"}}
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={toggleSidebar}
-         
-        >
-          <span className="navbar-toggler-icon" ></span>
-        </button>
-        
-
-        <h5 className="stripe" >Roomey Chat</h5>
+        {/* Navbar Toggle Button for Mobile */}
        
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        
-          <marquee behavior="scroll"  style={{ color: 'white' }} className="marquee-text">
-            Welcome to Roomey Chat! Join a room and start chatting!
-          </marquee>
-        
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-         
-        </div>
-          <div className="d-flex align-items-center">
-        
-          <div className="marquee-container">
-        
-            {auth.isAuthenticated ? (
-              <div style={{ display: 'flex',marginTop:"20px", alignItems: 'center' }}>
-              {/* <Link className={`btn btn-${mode === 'light' ? 'dark' : 'light'} me-2`}  style={{border:"1px solid blue"}} to="/admin_panel">
-                <FontAwesomeIcon icon={faPlusSquare} /> Admin Panel
-            </Link> */}
-             <Link className={`btn btn-${mode === 'light' ? 'dark' : 'light'} me-2`} style={{border:"1px solid blue"}} to="/profileManagement">
-                <FontAwesomeIcon icon={faUser} /> Profile
-            </Link>
-            <Link className={`btn btn-${mode === 'light' ? 'dark' : 'light'} me-2`}  style={{border:"1px solid blue"}} to="/create_room">
-                <FontAwesomeIcon icon={faPlusSquare} /> CreateRoom
-            </Link>
 
-            <button  style={{border:"1px solid blue"}} className={`btn btn-${mode === 'light' ? 'dark' : 'light'} me-2`} onClick={logout}>
-                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-            </button>
-            </div>
+        {/* Navbar Brand (Sidebar Icon) */}
+        <Link className="navbar-brand" onClick={handleSidebarToggle}> {/* Prevent link behavior */}
+          <FontAwesomeIcon icon={faBars} />
+        </Link>
+
+        {/* Dropdown Icon to Toggle Nav Links (Right) */}
+        <button
+          className="btn btn-outline-secondary d-lg-none"
+          onClick={() => setShowLinks(!showLinks)} // Toggle nav links visibility
+        >
+          <FontAwesomeIcon icon={faChevronDown} />
+        </button>
+
+        {/* Navbar Links & Actions */}
+        <div className={`collapse navbar-collapse ${showLinks ? 'd-block' : 'd-none'} d-lg-flex`}>
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <marquee behavior="scroll" className="text-dark" style={{ fontSize: '14px' }}>
+                Welcome to Roomey Chat! Join a room and start chatting!
+              </marquee>
+            </li>
+
+            {/* Conditional Links Based on Authentication */}
+            {auth.isAuthenticated ? (
+              <>
+                <li className="nav-item">
+                  <Link
+                    className={`btn btn-${mode === 'light' ? 'dark' : 'light'} btn-sm me-2`}
+                    to="/profileManagement"
+                  >
+                    <FontAwesomeIcon icon={faUser} /> Profile
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className={`btn btn-${mode === 'light' ? 'dark' : 'light'} btn-sm me-2`}
+                    to="/create_room"
+                  >
+                    <FontAwesomeIcon icon={faPlusSquare} /> Create Room
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className={`btn btn-${mode === 'light' ? 'dark' : 'light'} btn-sm me-2`}
+                    onClick={logout}
+                  >
+                    <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+                  </button>
+                </li>
+              </>
             ) : (
-              <div style={{marginTop:'18px'}}>
-             
-             <Link className={`btn btn-${mode === 'light' ? 'dark' : 'light'} me-2`} style={{border:"1px solid blue"}} to="/login">
-                <FontAwesomeIcon icon={faSignInAlt} className="me-1" /> Login
-            </Link>
-            <Link className={`btn btn-${mode === 'light' ? 'dark' : 'light'}`} style={{border:"1px solid blue"}} to="/registration">
-                <FontAwesomeIcon icon={faUserPlus} className="me-1" /> Signup
-            </Link>
-              </div>
+              <>
+                <li className="nav-item">
+                  <Link
+                    className={`btn btn-${mode === 'light' ? 'dark' : 'light'} btn-sm me-2`}
+                    to="/login"
+                  >
+                    <FontAwesomeIcon icon={faSignInAlt} /> Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className={`btn btn-${mode === 'light' ? 'dark' : 'light'} btn-sm`}
+                    to="/registration"
+                  >
+                    <FontAwesomeIcon icon={faUserPlus} /> Sign Up
+                  </Link>
+                </li>
+              </>
             )}
-            <div className={`form-check form-switch text-${mode === 'light' ? 'dark' : 'light'} ms-3`}>
-              {/* <input
-                className="form-check-input"
-                type="checkbox"
-                onClick={toggleMode}
-                role="switch"
-                id="flexSwitchCheckDefault"
-              /> */}
-              {/* <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-                {mode === 'light' ? 'Light Mode' : 'Dark Mode'}
-              </label> */}
-            </div>
-          </div>
+          </ul>
         </div>
       </div>
     </nav>

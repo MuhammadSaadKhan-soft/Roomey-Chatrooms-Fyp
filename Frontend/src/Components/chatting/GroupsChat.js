@@ -7,14 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideo, faBell, faPaperPlane,faSmile,faBars, faTimes,faMicrophone ,faPencilAlt, faSave, } from '@fortawesome/free-solid-svg-icons';
 import VideoRoom from '../videoComponents/VideoRoom';
 import { AxiosRequest } from '../Axios/AxiosRequest';
+import { Container, Row, Col, Form, Button, Badge,Card } from 'react-bootstrap';
 import ReactScrollToBottom from 'react-scroll-to-bottom';
+
 import EmojiPicker from 'emoji-picker-react';
 import io from 'socket.io-client';
 import ReactRecorder from '../videoComponents/ReactRecorder';
 
 
 
-const ENDPOINT = 'http://localhost:5000';
+const ENDPOINT = 'http://localhost:8080';
 
 const GroupsChat = ({ roomName, mode }) => {
     const { roomId } = useParams();
@@ -45,13 +47,13 @@ const GroupsChat = ({ roomName, mode }) => {
     const [editedMessageText, setEditedMessageText] = useState('');
     const navigate=useNavigate();
   
-    // const socket = io("http://localhost:5000");
+    // const socket = io("http://localhost:8080");
     // socketRef.current = socket;
     useEffect(() => {
         console.log("Updated user list:", userList);
     }, [userList]); 
     useEffect(() => {
-        const socket = io("http://localhost:5000");
+        const socket = io("http://localhost:8080");
         
         socket.on('userJoined', (data) => {
             setNotifications((prevNotifications) => [...prevNotifications, { message: data.message }]);
@@ -291,7 +293,7 @@ const GroupsChat = ({ roomName, mode }) => {
  
     const fetchRoomDetails = async () => {
         try {
-            const response = await AxiosRequest.get(`http://localhost:5000/api/${roomId}`);
+            const response = await AxiosRequest.get(`http://localhost:8080/api/${roomId}`);
             // console.log('Fetched room:', response.data);
             setAdmin(response.data.admin?.name || '');
             setUserList(response.data.users || []);
@@ -362,7 +364,7 @@ const GroupsChat = ({ roomName, mode }) => {
         formData.append("timestamp", new Date().toISOString())
     
         try {
-          const response = await AxiosRequest.post("http://localhost:5000/api/messages/data", formData, {
+          const response = await AxiosRequest.post("http://localhost:8080/api/messages/data", formData, {
             headers: {
               "Content-Type": "multipart/form-data",
             },
@@ -467,8 +469,8 @@ const GroupsChat = ({ roomName, mode }) => {
                             text: data.message,
                             timestamp: data.timestamp,
                             profilePicture: data.profilePicture,
-                            audioUrl: data.audioUrl ? `http://localhost:5000${data.audioUrl}` : null,
-                            imageUrl: data.imageUrl ? `http://localhost:5000/uploads/${data.imageUrl}`:null
+                            audioUrl: data.audioUrl ? `http://localhost:8080${data.audioUrl}` : null,
+                            imageUrl: data.imageUrl ? `http://localhost:8080/uploads/${data.imageUrl}`:null
                         }];
                     }
                     return prev;
@@ -482,8 +484,8 @@ const GroupsChat = ({ roomName, mode }) => {
                 text: data.text,
                 timestamp: data.timestamp,
                 profilePicture: data.profilePicture,
-                audioUrl: data.audioUrl ? `http://localhost:5000${data.audioUrl}` : null,
-                imageUrl: data.imageUrl ? `http://localhost:5000/uploads/${data.imageUrl}`:null
+                audioUrl: data.audioUrl ? `http://localhost:8080${data.audioUrl}` : null,
+                imageUrl: data.imageUrl ? `http://localhost:8080/uploads/${data.imageUrl}`:null
             }]);
         }
     };
@@ -539,7 +541,7 @@ const GroupsChat = ({ roomName, mode }) => {
         formData.append("timestamp", timestamp);
     
         try {
-            const response = await AxiosRequest.post("http://localhost:5000/api/messages/data", formData, {
+            const response = await AxiosRequest.post("http://localhost:8080/api/messages/data", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -591,7 +593,7 @@ const GroupsChat = ({ roomName, mode }) => {
     formData.append('text', '');
 
     try {
-        const response = await AxiosRequest.post('http://localhost:5000/api/audio', formData, {
+        const response = await AxiosRequest.post('http://localhost:8080/api/audio', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data', // Ensure this is set correctly
             },
@@ -684,285 +686,209 @@ const handleNotificationCheck = () => {
     }
 };
   // Button click handl
-    return (
-        <div className={`ChatPage ${mode === "dark" ? "black" : "white"}`}>
-            <div  style={{border:'0.5px solid blue'}}className={`Sidebar `}>
-                
-                {profilePicture && <img src={profilePicture} alt="User" className="UserImage" />}
-                <span>{user}</span>
-                <ReactScrollToBottom>
-                <div className="AdminName">Admin: {admin}</div>
-                <div className="userCountContainer">
-                    Users in count: {userCount}
-                </div>
-              
-                <div className="UserList">
-    {userList.length > 0 ? (
-        userList.map((user, i) => {
-            const storedUserData = sessionStorage.getItem('userData');
-            const currentUser = storedUserData ? JSON.parse(storedUserData).name : null;
-            console.log(currentUser); // Should now correctly print the name
-            console.log(storedUserData);
+  return (
+    <Container fluid className={`vh-100 ${mode === 'dark' ? 'bg-dark text-light' : 'bg-white text-dark'}`}>
+      <Row className="h-100">
+        {/* Sidebar */}
+        <Col md={3} className="border-end p-3 d-none d-md-block bg-light overflow-auto">
 
-            return (
-                <li key={user._id}>
-                    <img src={user.profilePicture} alt="User" className="UserImage" />
-                    <span>{user.name}</span>
-
-                    {/* Check if the logged-in user is the admin */}
-                    {admin === currentUser && admin !== user.name && (
-                        <button onClick={() => {
-                            console.log("User:", user);
-                            console.log("RoomId:", roomId);
-                            handleRemoveUser(user); // Pass both user and roomId
-                        }}>
-                            Remove User
-                        </button>
-                    )}
-                </li>
-            );
-        })
-    ) : (
-        <li>wait</li>
-    )}
-</div>
-
-
-                
-                 </ReactScrollToBottom>
-            </div>
-            
-            <div className="ChatContainer">
-                <div className={`Header ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
-                {/* <FontAwesomeIcon style={{ color: mode === "dark" ? "black" : "white" }} icon={faVideo} onClick={() => {
-    setShowModal(true);
-    handleVideoIconClick();
-}} /> */}
-                     {/* <FontAwesomeIcon style={{ color: mode === "dark" ? "black" : "white" }} icon={faMicrophone} onClick={() => setShowModal(true)} 
-/> */}
-                    {roomname}
-                   
-                    <div className={`NotificationIcon ${showDropdown ? 'show-dropdown' : ''}`} onClick={toggleDropdown}>
-                   
-                        <FontAwesomeIcon style={{ color: mode === "dark" ? "black" : "white" }} icon={faBell} />
-                         {notificationCount > 0 && (
-                            <span className="NotificationBadge">{notificationCount}</span>
-                             
-                                
-                        )}
-                        
-                       
-                        {showDropdown && (
-                            <div className="DropdownMenu">
-                                {notifications.length > 0 ? (
-                                    notifications.map((notification, index) => (
-                                        <p key={index}>{notification.message}</p>
-                                    ))
-                                ) : (
-                                    <p>No new notifications</p>
-                                )}
-                            </div>
-                        )}
-                    </div>
-                </div>
-               
-                <div className="ChatBox">
-  {loading ? (
-    <div>Loading...</div>
-) : (
-    messages.map((item) => (
-        <div
-            key={item._id}
-            className={`message-container ${item.sender === user ? 'right' : 'left'}`}
-        >
-            <Message
-                sender={item.sender}
-                message={
-                    editingMessageId === item._id ? (
-                        <input
-                            type="text"
-                            value={editedMessageText}
-                            onChange={(e) => setEditedMessageText(e.target.value)}
-                            onBlur={() => handleSaveEdit(item._id)} // Save on input blur
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') handleSaveEdit(item._id); // Save on Enter
-                            }}
-                            className="edit-input"
-                            autoFocus
-                        />
-                    ) : (
-                        <>
-                            {/* Text */}
-                            {item.text && <p style={{ marginTop: '15px' }}>{item.text}</p>}
-                            {item.isEdited && <span className="edited-label"> (edited)</span>}
-
-                            {/* Image */}
-                            {item.imageUrl && (
-                                <img
-                                    src={`http://localhost:5000${item.imageUrl}`}
-                                    alt="Sent image"
-                                    style={{ maxWidth: '200px', marginTop: '10px', borderRadius: '8px' }}
-                                />
-                            )}
-
-                            {/* Audio */}
-                            {item.audioUrl && (
-                                <audio controls style={{ marginTop: '10px' }}>
-                                    <source src={`http://localhost:5000${item.audioUrl}`} />
-                                    Your browser does not support the audio element.
-                                </audio>
-                            )}
-                        </>
-                    )
-                }
-                classs={item.sender === user ? 'right' : 'left'}
-                timestamp={item.timestamp}
-                profilePicture={item.profilePicture}
-            />
-
-            {/* {item.sender === user && !item.isEdited && editingMessageId !== item._id && (
-                <button
-                    onClick={() => handleEditClick(item._id, item.text)}
-                    className="edit-button"
-                >
-                    <FontAwesomeIcon icon={faPencilAlt} /> Edit
-                </button>
-            )} */}
-
-            {/* {item.sender === user && (
-                <button onClick={() => deleteMessage(item._id)} className="delete-button">
-                    Delete
-                </button>
-            )} */}
-        </div>
-    ))
-)}
-
-</div>
-
-
-
-
-
-
-                 
-               
-                
-                <div className="InputBox">
-                {/* <button onClick={() => setShowEmojiPicker(!showEmojiPicker)} className="EmojiButton" style={{backgroundColor:'#242736',
-                            border:'1px solid blue',marginTop:'-2.5px',marginRight:'15px'}}>
-                        <FontAwesomeIcon icon={faSmile} />
-                    </button> */}
-                    {/* {showEmojiPicker && (
-                        <div className="EmojiPicker">
-                            <EmojiPicker onEmojiClick={handleEmojiClick} />
-                        </div>
-                    )} */}
-                    <input
-                        type="text"
-                        id="chatInput"
-                        value={currentMessage}
-                        onChange={(e) => setCurrentMessage(e.target.value)}
-                        onKeyPress={(e) => {
-                            if (e.key === 'Enter') {
-                                sendMessage(currentMessage);
-                            }
-                        }}
-                        
-                        style={{
-                            paddingLeft: '30px',
-                            backgroundColor: mode === "dark" ? "#333" : "#f9f9f9",
-                            color: mode === "dark" ? "white" : "black",
-                            border: mode === "dark" ? "1px solid #ccc" : "1px solid #333",
-                            marginLeft:'-5px'
-                        }}
-                    />
-                 {/* {audioPreviewUrl && <audio controls src={audioPreviewUrl}></audio>} */}
-        
-        {/* {isRecording ? (
-                      <ReactRecorder
-                      
-                      onRecord={(blob) => {
-                        handleSetPreview(blob);
-                      }}
-                      onStop={(blob) => {
-                        handleSendAudio(blob);
-                      }}
-                      onSendAudio={handleSendAudio}
-                    />
-                    ) : (
-                        <button className='audio-button' style={{backgroundColor:'#242736',
-                            border:'1px solid blue', marginLeft: '0px', marginRight: '10px' }}  onClick={() => setIsRecording(!isRecording)}>
-                        <FontAwesomeIcon icon={faMicrophone}  />
-                    </button>
-                    )}
-                     */}
-                  
-                  <input
-    type="file"
-    id="image"
-    name="image"
-    onChange={(e) => {
-        const file = e.target.files[0];
-        if (file) {
-          handleSendImageMessage(file);
-        }
+{/* Main User Profile Card */}
+<Card className="mb-4 text-center">
+  {profilePicture && (
+    <Card.Img
+      variant="top"
+      src={profilePicture}
+      alt="User"
+      style={{
+        width: '100%',
+        height: '250px',
+        objectFit: 'cover',
+        borderTopLeftRadius: '0.5rem',
+        borderTopRightRadius: '0.5rem'
       }}
-    style={{
-      display: 'none',
-    }}
-  />
-  
-  <label
-    htmlFor="image"
-    style={{
-      display: 'inline-block',
-      width: '50px',
-      height: '50px',
-      borderRadius: '50%',
-      backgroundColor: '#007bff',
-      color: 'white',
-      textAlign: 'center',
-      lineHeight: '50px',
-      fontSize: '20px',
-      cursor: 'pointer',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
-      userSelect: 'none',
+    />
+  )}
+  <Card.Body>
+    <Card.Title className="mb-0">{user}</Card.Title>
+    <Card.Text className="text-muted small">Logged In</Card.Text>
+  </Card.Body>
+</Card>
+
+{/* Admin & User Info Card */}
+<Card className="mb-4">
+  <Card.Body>
+    <p className="mb-2"><strong>Admin:</strong> <span className="text-muted">{admin}</span></p>
+    <p className="mb-0"><strong>Users Count:</strong> <span className="text-muted">{userCount}</span></p>
+  </Card.Body>
+</Card>
+
+{/* User List */}
+<Card>
+  <Card.Header className="fw-semibold">Users</Card.Header>
+  <ul className="list-group list-group-flush">
+    {userList.length > 0 ? (
+      userList.map((u) => (
+        <li
+          key={u._id}
+          className="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <div className="d-flex align-items-center">
+            <img
+              src={u.profilePicture}
+              alt="User"
+              className="rounded-circle me-2"
+              width={15}
+              height={15}
+              style={{ objectFit: 'cover' }}
+            />
+            <span className="text-truncate" style={{ maxWidth: '120px' }} title={u.name}>{u.name}</span>
+          </div>
+          {admin === currentUser && admin !== u.name && (
+            <Button
+              variant="outline-danger"
+              size="sm"
+              onClick={() => handleRemoveUser(u)}
+            >
+              Remove
+            </Button>
+          )}
+        </li>
+      ))
+    ) : (
+      <li className="list-group-item text-muted">Waiting for users...</li>
+    )}
+  </ul>
+</Card>
+</Col>
+
+
+        {/* Chat Container */}
+        <Col md={9} className="d-flex flex-column p-0">
+          {/* Header */}
+          <div className={`d-flex justify-content-between align-items-center p-3 border-bottom ${mode === 'dark' ? 'bg-secondary' : 'bg-white'}`}>
+            <h5 className="mb-0">{roomname}</h5>
+            <div className="position-relative" onClick={toggleDropdown} style={{ cursor: 'pointer' }}>
+              <FontAwesomeIcon icon={faBell} />
+              {notificationCount > 0 && (
+                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                  {notificationCount}
+                </Badge>
+              )}
+              {showDropdown && (
+                <div className="bg-white border shadow-sm rounded p-2 position-absolute end-0 mt-2" style={{ zIndex: 1050 }}>
+                  {notifications.length > 0 ? (
+                    notifications.map((n, i) => <p className="mb-1" key={i}>{n.message}</p>)
+                  ) : (
+                    <p className="mb-0 text-muted">No new notifications</p>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Messages */}
+          <div className="flex-grow-1 overflow-auto p-3">
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              messages.map((item) => (
+                <div
+                  key={item._id}
+                  className={`d-flex flex-column mb-3 ${item.sender === user ? 'align-items-end' : 'align-items-start'}`}
+                >
+                  <div className={`p-2 rounded ${item.sender === user ? 'bg-primary text-white' : 'bg-light'}`} style={{ maxWidth: '70%' }}>
+                    <small className="fw-bold">{item.sender}</small>
+                    <div>
+                      {editingMessageId === item._id ? (
+                        <Form.Control
+                          type="text"
+                          value={editedMessageText}
+                          onChange={(e) => setEditedMessageText(e.target.value)}
+                          onBlur={() => handleSaveEdit(item._id)}
+                          onKeyDown={(e) => e.key === 'Enter' && handleSaveEdit(item._id)}
+                          autoFocus
+                        />
+                      ) : (
+                        <>
+                          {item.text && <p className="mb-1">{item.text}</p>}
+                          {item.isEdited && <span className="small fst-italic">(edited)</span>}
+                          {item.imageUrl && (
+                            <img
+                              src={`http://localhost:8080${item.imageUrl}`}
+                              alt="Sent"
+                              className="img-fluid rounded mt-2"
+                              style={{ maxWidth: '200px' }}
+                            />
+                          )}
+                          {item.audioUrl && (
+                            <audio controls className="mt-2">
+                              <source src={`http://localhost:8080${item.audioUrl}`} />
+                            </audio>
+                          )}
+                        </>
+                      )}
+                    </div>
+                    <small className="text-muted d-block mt-1" style={{ fontSize: '0.75rem' }}>
+                      {new Date(item.timestamp).toLocaleTimeString()}
+                    </small>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* Input Box */}
+          <div className="border-top p-3">
+  <Form
+    className="d-flex flex-column flex-md-row align-items-stretch gap-2"
+    onSubmit={(e) => {
+      e.preventDefault();
+      sendMessage(currentMessage);
     }}
   >
-  file
-   
-</label>
-                  
-                    <button  className="SendButton"
-                    
-                        onClick={() => sendMessage(currentMessage)}
-                        style={{
-                            
-                            color: "white",
-                            border: "none",
-                            borderRadius: "5px",
-                            cursor: "pointer",
-                            padding: "10px 20px",
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            marginTop:'-1px',
-                            marginLeft:'10px',
-                            backgroundColor:'#242736',
-                            border:'1px solid blue',
-                            
-                        }}
-                    >
-                        <FontAwesomeIcon icon={faPaperPlane} style={{ marginRight: '8px',padding:'2px',}} />
-                        Send
-                    </button>
-                </div>
-            </div>
-            {/* <VideoRoom showModal={showModal} setShowModal={setShowModal} /> */}
-             {/* <Audio showModal={showModal} setShowModal={setShowModal}/>   */}
-        </div>
-    );
+    {/* Message Input */}
+    <Form.Control
+      type="text"
+      placeholder="Type a message..."
+      value={currentMessage}
+      onChange={(e) => setCurrentMessage(e.target.value)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage(currentMessage);
+        }
+      }}
+      className="flex-grow-1"
+    />
+
+    {/* File Input */}
+    <Form.Group controlId="fileInput" className="d-flex align-items-center">
+      <Form.Control
+        type="file"
+        style={{ width: '180px' }}
+        onChange={(e) => {
+          const file = e.target.files[0];
+          if (file) handleSendImageMessage(file);
+        }}
+      />
+    </Form.Group>
+
+    {/* Send Button */}
+    <Button
+      type="submit"
+      variant="primary"
+      className="d-flex align-items-center"
+    >
+      <FontAwesomeIcon icon={faPaperPlane} className="me-1" />
+      Send
+    </Button>
+  </Form>
+</div>
+
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default GroupsChat;

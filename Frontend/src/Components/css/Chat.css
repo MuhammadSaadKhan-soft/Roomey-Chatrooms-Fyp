@@ -362,10 +362,20 @@
 }
 
 
-/* Custom Scrollbar */
 .ChatBox::-webkit-scrollbar {
-    width: 12px; /* Adjust width of scrollbar */
-    height: 8px; /* Optional: If you want to apply a custom style to horizontal scrollbar */
+    width: 0px;
+    background: transparent;
+}
+
+/* When scrolled to the bottom, show custom scrollbar */
+.ChatBox.at-bottom::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Style the thumb */
+.ChatBox.at-bottom::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #334970, #6c747d);
+    border-radius: 10px;
 }
 
 /* Scrollbar Track */
@@ -375,13 +385,7 @@
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow inside the track */
 }
 
-/* Scrollbar Thumb */
-.ChatBox::-webkit-scrollbar-thumb {
-    background-color: #5a626a; /* Slightly lighter color for thumb */
-    border-radius: 10px; /* Rounded corners */
-    border: 3px solid #2f3136; /* Border around the thumb */
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Soft shadow around thumb */
-}
+
 
 /* Scrollbar Thumb Hover Effect */
 .ChatBox::-webkit-scrollbar-thumb:hover {
