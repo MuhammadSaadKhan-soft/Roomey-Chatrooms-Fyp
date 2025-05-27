@@ -73,9 +73,6 @@ function App() {
         ) : (
           <Route path="/login" element={<Login showAlert={showAlert} themes={theme} toggleMode={toggleMode} />} />
         )}
-
-       
-
         {!auth.isAuthenticated && <Route path="*" element={<Navigate to="/login" themes={theme} toggleMode={toggleMode}/>} />}
         {!auth.isAuthenticated && <Route path="*" element={<Navigate to="/registration" />} />}
         {!auth.isAuthenticated &&   <Route path="/forget-password" element={<ForgetPassword themes={theme}/>} />}
