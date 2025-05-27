@@ -1,0 +1,37 @@
+.admin-panel-container {
+    padding-top: 56px; /* Adjusts for the fixed header */
+  }
+  
+  .admin-panel-sidebar {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+  }
+  
+  .admin-panel-navbar {
+    box-shadow: 0 4px 2px -2px gray;
+    z-index: 1000;
+  }
+  
+  .admin-panel-sidebar .list-group-item {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .admin-panel-sidebar .list-group-item.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .admin-panel-navbar .navbar-brand img {
+    height: 25px;
+  }
+  
+  .admin-panel-navbar .badge-notification {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+  }
+  

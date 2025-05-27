@@ -1,0 +1,23 @@
+/* Example CSS to remove black borders and shades */
+
+.zego-video-container {
+    border: none !important; /* Remove any border */
+    box-shadow: none !important; /* Remove any shadow */
+}
+
+/* Adjust specific classes or IDs as needed */
+.zego-container {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* If using dark mode, ensure styles apply correctly */
+.dark-mode .zego-video-container {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.light-mode .zego-video-container {
+    border: none !important;
+    box-shadow: none !important;
+}
