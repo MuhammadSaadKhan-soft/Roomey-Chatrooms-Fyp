@@ -1,0 +1,73 @@
+/* Container for the Profile Management Page */
+.profile-management__container {
+    padding: 50px 0;
+  }
+  
+  /* Profile Image */
+  .profile-management__image-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-management__image {
+    border-radius: 50%;
+    max-width: 150px;
+  }
+  
+  .profile-management__loading-text {
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Form Styles */
+  .profile-management__form {
+    width: 100%;
+  }
+  
+  .profile-management__form-group {
+    margin-bottom: 15px;
+  }
+  
+  .profile-management__label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .profile-management__input {
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .profile-management__input:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  }
+  
+  /* Error Text */
+  .profile-management__error-text {
+    font-size: 0.9rem;
+    color: #e74c3c;
+    margin-top: 5px;
+  }
+  
+  /* Submit Button */
+  .profile-management__submit-btn {
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+ 
+  

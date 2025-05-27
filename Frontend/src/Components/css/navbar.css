@@ -1,0 +1,127 @@
+/* Stripe Text Animation */
+.stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #211818 0 4px,
+    transparent 4px 8px
+  );
+  background-clip: text;
+  color: transparent;
+  margin-top: 8px;
+  text-shadow: -0.03em -0.03em #ffffff; /* original text */
+  text-transform: uppercase;
+  text-align: center;
+  animation: ani 5s linear forwards;
+}
+
+/* Keyframe for Stripe Animation */
+@keyframes ani {
+0% {
+  background: #333;
+  text-shadow: none;
+  background-clip: none;
+  color: transparent;
+}
+
+20% {
+  background: repeating-linear-gradient(
+    45deg,
+    #333 0 4px,
+    transparent 4px 8px
+  );
+  color: transparent;
+  text-shadow: none;
+}
+
+40%, 80% {
+  background: repeating-linear-gradient(
+    45deg,
+    #333 0 4px,
+    transparent 4px 8px
+  );
+  color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+100% {
+  background: repeating-linear-gradient(
+    45deg,
+    #333 0 4px,
+    transparent 4px 8px
+  );
+  background-clip: text;
+  color: transparent;
+  text-shadow: -0.03em -0.03em #f5f5f5;
+}
+}
+
+/* Navigation Bar Styling */
+.custom-navbar {
+  background-color: #242736;
+  position: sticky;
+  top: 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+/* Smooth Background Transition on Scroll */
+.custom-navbar.scrolled {
+  background-color: #1b1e24;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow when scrolled */
+}
+
+/* Navbar Text Glow Effect */
+.custom-navbar a {
+  color: #f5f5f5;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-navbar a:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Glowing Effect */
+.custom-navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4a90e2, #7f8c8d, #f39c12, #f1c40f);
+  animation: glow 3s linear infinite;
+}
+
+/* Keyframes for Glow Animation */
+@keyframes glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Optional: JavaScript for Scroll Detection (to toggle scrolled class) */
+@keyframes glowingBorder {
+  0% {
+      border-color: blue;
+      box-shadow: 0 0 5px blue;
+  }
+  50% {
+      border-color: cyan;
+      box-shadow: 0 0 15px cyan;
+  }
+  100% {
+      border-color: blue;
+      box-shadow: 0 0 5px blue;
+  }
+}
+
+.glowing-border {
+  border: 2px solid blue;
+  border-radius: 8px;
+  animation: glowingBorder 2s infinite alternate;
+}

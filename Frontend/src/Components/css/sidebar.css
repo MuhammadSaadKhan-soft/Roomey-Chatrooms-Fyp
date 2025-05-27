@@ -1,0 +1,275 @@
+/* Keyframes for unique shining effect */
+@keyframes uniqueShine {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Sidebar styles */
+@keyframes glowingBorder {
+    0% {
+        border-color: blue;
+        box-shadow: 0 0 5px blue;
+    }
+    50% {
+        border-color: cyan;
+        box-shadow: 0 0 15px cyan;
+    }
+    100% {
+        border-color: blue;
+        box-shadow: 0 0 5px blue;
+    }
+}
+.offcanvas {
+    transition: all 0.3s ease;
+    background: #242736; /* Dark gradient background */
+    background-size: 200% 100%; /* Ensure the gradient covers twice the width */
+    animation: uniqueShine 5s linear infinite; /* Apply the shining animation */
+    border-right: 1px solid #444; /* Darker border for contrast */
+    width: 250px; /* Width of the sidebar */
+    height: 100vh; /* Full screen height */
+    padding: 20px; /* Padding */
+    overflow-y: auto; /* Scrollbar */
+    color: #d1d5da; /* Light text color */
+    background-color: #242736;
+    
+}
+
+/* Sidebar header styles */
+.offcanvas-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+    
+}
+
+
+/* Close button styles */
+.btn-close {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.btn-close:hover {
+    color: #f05a5b; /* Light red color on hover */
+}
+
+/* User info section in the sidebar */
+.offcanvas.user-info {
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+}
+
+.offcanvas.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #2c2f36; /* Dark border around user image */
+}
+
+/* Navigation link styles */
+.offcanvas.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #d1d5da; /* Light gray text color */
+    font-size: 16px; /* Font size */
+    font-weight: 500; /* Font weight */
+    background: linear-gradient(to right, #7d2626, #444); /* Dark gradient for shine */
+    background-size: 200% 100%;
+    animation: uniqueShine 5s linear infinite;
+    border-radius: 5px;
+    margin: 5px 0; /* Margin between items */
+    transition: background-color 0.3s ease;
+}
+
+.offcanvas.nav-link:hover {
+    background-color: #555; /* Darker gray hover background */
+    color: #fff; /* White text color on hover */
+}
+
+.offcanvas.nav-link.active {/* Discord-like blue active background */
+    color: #fff; /* White text color */
+}
+
+/* Icon styles within nav links */
+.offcanvas.nav-link svg {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 18px; /* Icon size */
+    color: #d1d5da; /* Light icon color */
+}
+
+/* Button styles */
+.offcanvas.btn-outline-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+ 
+    color: #fff; /* White text color */
+    font-size: 16px; /* Font size */
+    font-weight: 500; /* Font weight */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Default room item styles */
+.room-item {
+    cursor: pointer;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Active room item with red background */
+.room-item.active {
+    background-color: #f05a5b; /* Light red background for active room */
+    color: #fff; /* White text color */
+}
+
+/* Smooth color transition */
+.room-item:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+/* User List styling */
+.UserList {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    animation: fadeIn 1s ease-in-out; /* Fade in effect */
+}
+
+/* User List Item styling */
+.UserList p {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #333; /* Darker gray background for items */
+    color: #d1d5da; /* Light text color */
+    transition: background-color 0.3s ease;
+}
+
+/* Empty User List Message styling */
+.UserList p.empty {
+    text-align: center;
+    font-style: italic;
+    color: #777; /* Gray color for empty message */
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for typing effect */
+@keyframes typing {
+    from { width: 100px; }
+    to { width: 400px; } /* Limit the width to 400px */
+}
+
+/* Blinking caret effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+/* Styling for the paragraph */
+.typing-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    white-space: normal; /* Allow text to wrap */
+    overflow: hidden;
+   
+    display: inline-block;
+   
+     color: red;
+    word-wrap: break-word; /* Break text at the width boundary */
+
+}
+
+/* Container to limit text width */
+.text-container {
+   
+    margin: 0 auto;
+    
+}
+.glowing-input {
+    border: 2px solid blue;
+    border-radius: 4px;
+    animation: glowingBorder 2s infinite alternate;
+}
+.custom-modal .modal-content {
+    background-color: #242736; /* Background color for the whole modal */
+    color: white; /* Text color */
+}
+
+.custom-modal-header {
+    background-color: #242736;
+    border-bottom: none; /* Optional: Remove border for cleaner look */
+    color: white;
+}
+
+.custom-modal-body {
+    background-color: #242736;
+    color: white;
+}
+
+.custom-modal-footer {
+    background-color: #242736;
+    border-top: none; 
+    color: white;
+}
+
+.custom-modal .btn-primary {
+    background-color: #1e90ff; 
+    border-color: #1e90ff;
+}
+.room-item.scheduled {
+    border-left: 4px solid #007bff; /* Blue border for scheduled rooms */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background */
+    transition: background-color 0.3s, border-left 0.3s;
+}
+
+.room-item.scheduled:hover {
+    background-color: rgba(0, 123, 255, 0.2); /* Darker blue on hover */
+}
+.badge.bg-primary {
+    background-color: #007bff; /* A vibrant blue */
+    color: #fff; /* White text */
+    font-size: 0.8rem; /* Slightly smaller text */
+    padding: 0.3rem 0.5rem; /* Padding for better readability */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect */
+}
+.badge {
+    margin-left: 10px; /* Space between badges */
+    vertical-align: middle; /* Align badges with text */
+}

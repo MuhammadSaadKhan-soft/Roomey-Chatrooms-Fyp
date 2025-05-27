@@ -1,0 +1,174 @@
+/* Home container styling */
+
+.home-container {
+    width: 600px; /* Increased size */
+    max-width: 100%;
+    height: auto; /* Adjusted to fit content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 30px; /* Added padding */
+    border: 1px solid #444; /* Darker border for modern look */
+    border-radius: 20px; /* More rounded corners */
+    background-color: #242736; /* Dark background */
+    margin-top: 100px; /* Adjusted margin */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition */
+    
+}
+
+.home-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+/* Heading styling */
+.home-container h2 {
+    margin-bottom: 20px;
+    font-size: 28px; /* Larger font size */
+    color: #ffffff; /* White text color */
+    animation: fadeIn 1s ease; /* Fade-in animation */
+}
+.date-picker {
+    width: 100%; /* Adjust as needed */
+    padding: 10px;
+    border: 1px solid #ccc; /* Ensure borders are visible */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Input and select styling */
+.home-container .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width */
+}
+
+.home-container input[type="text"],
+.home-container input[type="password"],
+.home-container select {
+    width: 80%; /* Adjusted width */
+    margin-bottom: 15px; /* Increased margin */
+    padding: 12px; /* Added padding */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #555; /* Darker border */
+    background-color: #3a3c40; /* Dark background for inputs */
+    color: #e4e6eb; /* Light text color */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.home-container input[type="text"]:focus,
+.home-container input[type="password"]:focus,
+.home-container select:focus {
+    border-color: #5865f2; /* Blue border on focus */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.6); /* Enhanced shadow effect */
+    outline: none; /* Remove default outline */
+}
+
+/* Button styling */
+.home-container button {
+    width: 50%; /* Adjusted width */
+    max-width: 100%;
+    background: linear-gradient(45deg, #eff0f0, #d6d6dd); /* Gradient background */
+    color: black;
+    padding: 12px; /* Added padding */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    border: 2px solid transparent; /* Transparent border */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+    font-size: 18px; /* Larger font size */
+    font-weight: bold; /* Bold font */
+    text-transform: uppercase; /* Uppercase text */
+}
+
+.home-container button:hover {
+    background: linear-gradient(45deg,White); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    border-color: #a2a2a3; /* Darker border color on hover */
+}
+
+.home-container button:active {
+    background: linear-gradient(45deg, #8c8c8c, #b1b1b1); /* Even darker gradient on active */
+    transform: scale(1.02); /* Slightly reduce size on active */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Reduced shadow on active */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dropdown {
+    width: 80%;
+    margin-bottom: 15px; /* Increased margin */
+    padding: 12px; /* Added padding */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #555; /* Dark border */
+    background-color: #3a3c40; /* Dark background */
+    color: #e4e6eb; /* Light text color */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.dropdown:focus {
+    border-color: #5865f2; /* Blue border on focus */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.6); /* Enhanced shadow */
+    outline: none; /* Remove default outline */
+    animation: bounceIn 0.5s ease; /* Bounce-in animation */
+}
+
+/* Keyframes for dropdown bounce animation */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.duration-inputs {
+    display: flex;
+    gap: 15px; /* Increased gap */
+    animation: fadeInUp 0.6s ease-out; /* Fade-in-up animation */
+}
+
+/* Duration input styling */
+.duration-field {
+    width: 80px; /* Increased width */
+    padding: 12px; /* Added padding */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #555; /* Dark border */
+    background-color: #3a3c40; /* Dark background */
+    color: #e4e6eb; /* Light text color */
+    transition: border-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Keyframes for fade-in-up animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.custom-modal .modal-content {
+    background-color: #242736;
+    color: white; 
+}
